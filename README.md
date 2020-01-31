@@ -3,7 +3,6 @@ Construct project Task with React Native.
 ### Install dependencies
 ```
 npm i
-
 ```
 ### Run project
 ```
