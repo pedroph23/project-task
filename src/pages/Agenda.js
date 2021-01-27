@@ -52,9 +52,9 @@ export default class Agenda extends Component {
 
     // inicia aqui apos montado o componente e resolvido as childs
     componentDidMount = async () => {
-        const tasks = await AsyncStorage.getItem('tasks');
-        tasks = JSON.parse(tasks) || [];
-        // console.log('roi', tasks)
+        const data = await AsyncStorage.getItem('tasks');
+        const tasks = JSON.parse(data) || [];
+ 
         this.setState({ tasks }, this.filterDoneTasks());
     }
    
