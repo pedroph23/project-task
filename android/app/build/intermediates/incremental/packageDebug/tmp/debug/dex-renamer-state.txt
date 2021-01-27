@@ -1,4 +1,4 @@
-#Thu Jan 30 22:17:08 BRST 2020
-base.0=/Users/pedro-ramalho/pedro-ramalho-c13310444/UDEMY/curso-react-native/task/android/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
+#Mon Jan 25 18:10:48 BRT 2021
+base.0=/home/pedro-ramalho/Documents/Projects/project-task/android/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
+path.0=classes.dex

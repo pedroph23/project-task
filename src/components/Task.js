@@ -4,6 +4,7 @@ import React from 'react';
 import CommonStyle from '../CommonStyle.js'
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import Swipeable from 'react-native-swipeable';
 
 export default props => {
 
@@ -13,7 +14,7 @@ export default props => {
         check = (
             <View style={styles.done}>
                 <Icon name='check' size={20}
-                    color={CommonStyle.colors.secondary} />
+                    color={ CommonStyle.colors.secondary } />
             </View>
         );
     } else {
@@ -22,25 +23,39 @@ export default props => {
 
     const descStyle = props.doneAt !== null ?  { textDecorationLine: 'line-through'} : {};
 
-    return (
-        <View style={ styles.container }>
-            <TouchableWithoutFeedback 
-            onPress={ () => props.toggleTask(props.id)}> 
-                <View style= { styles.checkContainer }> 
-                    { check } 
-                </View>
-            </TouchableWithoutFeedback>
-            <View>
-                <Text style={[styles.description, descStyle]}>
-                    { props.desc }
-                </Text>
-                <Text style={ styles.date }>
-                    { 
-                        moment(props.estimateAt).locale('pt-br').format('ddd, D [de] MMMM')
-                    }
-                </Text>
-            </View>
+
+    const leftContent = (
+        <View style={ styles.exclude }>
+            <Icon name="trash" size={ 20 } color='#FFF' />
+            <Text style={ styles.excludeText }> Excluir </Text>
         </View>
+    );
+    return (
+        <Swipeable 
+            leftActionActivationDistance={ 200 } 
+            onLeftActionRelease={() => props.onDelete(props.id)} 
+            leftContent={ leftContent } 
+        >
+            <View style={ styles.container }>
+                <TouchableWithoutFeedback 
+                    onPress={ () => props.toggleTask(props.id)}> 
+                    <View style= { styles.checkContainer }> 
+                        { check } 
+                    </View>
+                </TouchableWithoutFeedback>
+                <View>
+                    <Text style={[styles.description, descStyle]}>
+                        { props.desc }
+                    </Text>
+                    <Text style={ styles.date }>
+                        { 
+                            moment(props.estimateAt).locale('pt-br').format('ddd, D [de] MMMM')
+                        }
+                    </Text>
+                </View>
+            </View>
+        </Swipeable>
+        
     );
 }
 
