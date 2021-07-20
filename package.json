@@ -19,7 +19,7 @@
     "react": "^16.13.1",
     "react-devtools": "^3.6.3",
     "react-dom": "^17.0.1",
-    "react-native": "0.63.4",
+    "react-native": "0.64.1",
     "react-native-action-button": "^2.8.5",
     "react-native-swipe-action-list": "0.0.3",
     "react-native-swipeable": "^0.6.0",
